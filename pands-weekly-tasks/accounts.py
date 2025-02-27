@@ -1,4 +1,3 @@
-
 # Read in a user's account number
 account_n = input("Enter your account number: ")
 
