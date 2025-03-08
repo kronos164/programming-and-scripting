@@ -11,3 +11,6 @@ def sqrt():
         better = 0.5 * (approx + num/approx)
     print("The square root of", num, "is approx.", round(better, 2))
 sqrt()
+
+# References:
+# https://en.wikipedia.org/wiki/Newton%27s_method
