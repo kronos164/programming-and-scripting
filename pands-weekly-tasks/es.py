@@ -1,17 +1,27 @@
+import os
 import sys
 
-if len(sys.argv) > 1:
-    file = sys.argv[1]
-    directory = "../programming-and-scripting/pands-weekly-tasks/"
-    print(file)
-    file = directory + str(file)
-    print(file)
-    with open(file, "r") as f:
-        count = 0
-        for line in f:
-            for char in line:
-                if char == "e":
-                    count += 1
-        print(count)
+if len(sys.argv) > 1: # Check if a filename was provided
+    file = os.path.join(sys.argv[1]) # Get the filename
+    try:
+        with open(file, "r", encoding="utf-8") as f: # Open and encode the file
+            count = 0
+            # Count the number of 'e's in the file
+            for line in f:
+                for char in line:
+                    if char == "e":
+                        count += 1
+            print(count)
+    # Handle file not found error
+    except FileNotFoundError:
+        print(f"File not found: {file}")
 else:
-    print("Error: No file argument provided.")
+    # Print how to use message
+    print("Usage: python es.py <filename>")
+    
+# References:
+# https://realpython.com/python-command-line-arguments/
+# https://realpython.com/read-write-files-python/
+# https://docs.python.org/3/library/exceptions.html#FileNotFoundError
+# https://docs.python.org/3/library/os.path.html
+# https://docs.python.org/3/library/sys.html
