@@ -2,8 +2,9 @@ import sys
 
 if len(sys.argv) > 1:
     file = sys.argv[1]
-    directory = "./programming-and-scripting/pands-weekly-tasks/"
-    file = directory + file
+    directory = "../programming-and-scripting/pands-weekly-tasks/"
+    print(file)
+    file = directory + str(file)
     print(file)
     with open(file, "r") as f:
         count = 0
