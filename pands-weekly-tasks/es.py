@@ -19,6 +19,11 @@ else:
     # Print how to use message
     print("Usage: python es.py <filename>")
     
+# How to run:
+# Go to the directory where the file is located and run the following command:
+#       python es.py crime-and-punishment.txt
+#       python es.py <filename> | in case you want to check another file
+    
 # References:
 # https://realpython.com/python-command-line-arguments/
 # https://realpython.com/read-write-files-python/
