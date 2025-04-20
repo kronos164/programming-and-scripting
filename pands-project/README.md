@@ -44,6 +44,21 @@ programming-and-scripting/pands-project/
 ├── iris_summary.txt                                  # Text file with summary of Iris dataset
 |
 ```
+## References:
+
+### Iris dataset
+
+### Code
+https://www.kaggle.com/datasets/uciml/iris
+https://matplotlib.org/stable/gallery/statistics/histogram_features.html
+https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html
+https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html
+https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html
+https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
+https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter.html
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.astype.html
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Categorical.cat.codes.html
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html
 
 ## Author
 
