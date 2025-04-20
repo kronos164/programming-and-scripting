@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 
 # Check if the dataset exists in the specified path
 dataset = os.path.abspath(os.path.join(os.path.dirname(__file__), "../iris-dataset/iris.data"))
+images = os.path.abspath(os.path.join(os.path.dirname(__file__), "../images/"))
 if not os.path.exists(dataset):
     dataset = os.path.abspath(os.path.join(os.path.dirname(__file__), "../pands-project/iris-dataset/iris.data"))
+    images = os.path.abspath(os.path.join(os.path.dirname(__file__), "../pands-project/images/"))
     if not os.path.exists(dataset):
         print("Dataset not found. Please check the path.")
         exit(1)
@@ -122,7 +124,7 @@ plt.xticks(np.arange(0, 3, 0.1), rotation=45)
 plt.legend()
 
 plt.tight_layout(rect=[0, 0, 1, 0.96])
-plt.savefig("iris_histograms.png")
+plt.savefig(os.path.join(images, "iris_histograms.png"))
 plt.show()
 
 # Plot distribution of each feature for each species
@@ -142,7 +144,7 @@ plt.xlabel("Petal Length (cm)")
 plt.ylabel("Petal Width (cm)")
 
 plt.tight_layout()
-plt.savefig("iris_scatter_plots.png")
+plt.savefig(os.path.join(images, "iris_scatter_plots.png"))
 plt.show()
 
 # Plot correlation matrix with values displayed
@@ -159,7 +161,7 @@ for i in range(len(correlation_matrix)):
 plt.xticks(range(len(df.columns)), df.columns, rotation=45)
 plt.yticks(range(len(df.columns)), df.columns)
 plt.tight_layout()
-plt.savefig("iris_correlation_matrix.png")
+plt.savefig(os.path.join(images, "iris_correlation_matrix.png"))
 plt.show()
 
 # References:
