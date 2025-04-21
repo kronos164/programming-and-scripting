@@ -76,13 +76,15 @@ species_mapping = {0: "Iris-setosa", 1: "Iris-versicolor", 2: "Iris-virginica"}
 df["species_name"] = df["species"].map(species_mapping)
 
 # Plot histograms of each feature per species
-plt.figure(figsize=(15, 10))
+plt.figure(figsize=(10, 10))
 plt.suptitle("Iris Dataset", fontsize=20)
 
+colors = {"Iris-setosa": "darkblue", "Iris-versicolor": "pink", "Iris-virginica": "yellow"}
+
 plt.subplot(2, 2, 1)
-plt.hist(df[df["species_name"] == "Iris-setosa"]["sepal_length"], alpha=0.5, label="Iris-setosa")
-plt.hist(df[df["species_name"] == "Iris-versicolor"]["sepal_length"], alpha=0.5, label="Iris-versicolor")
-plt.hist(df[df["species_name"] == "Iris-virginica"]["sepal_length"], alpha=0.5, label="Iris-virginica")
+plt.hist(df[df["species_name"] == "Iris-setosa"]["sepal_length"], alpha=0.5, label="Iris-setosa", color=colors["Iris-setosa"])
+plt.hist(df[df["species_name"] == "Iris-versicolor"]["sepal_length"], alpha=0.5, label="Iris-versicolor", color=colors["Iris-versicolor"])
+plt.hist(df[df["species_name"] == "Iris-virginica"]["sepal_length"], alpha=0.5, label="Iris-virginica", color=colors["Iris-virginica"])
 plt.title("Sepal Length")
 plt.xlabel("Length (cm)")
 plt.ylabel("Frequency")
@@ -91,9 +93,9 @@ plt.xticks(np.arange(df["sepal_length"].min(), df["sepal_length"].max() + 0.2, 0
 plt.legend()
 
 plt.subplot(2, 2, 2)
-plt.hist(df[df["species_name"] == "Iris-setosa"]["sepal_width"], alpha=0.5, label="Iris-setosa")
-plt.hist(df[df["species_name"] == "Iris-versicolor"]["sepal_width"], alpha=0.5, label="Iris-versicolor")
-plt.hist(df[df["species_name"] == "Iris-virginica"]["sepal_width"], alpha=0.5, label="Iris-virginica")
+plt.hist(df[df["species_name"] == "Iris-setosa"]["sepal_width"], alpha=0.5, label="Iris-setosa", color=colors["Iris-setosa"])
+plt.hist(df[df["species_name"] == "Iris-versicolor"]["sepal_width"], alpha=0.5, label="Iris-versicolor", color=colors["Iris-versicolor"])
+plt.hist(df[df["species_name"] == "Iris-virginica"]["sepal_width"], alpha=0.5, label="Iris-virginica", color=colors["Iris-virginica"])
 plt.title("Sepal Width")
 plt.xlabel("Width (cm)")
 plt.ylabel("Frequency")
@@ -102,9 +104,9 @@ plt.xticks(np.arange(df["sepal_width"].min(), df["sepal_width"].max() + 0.2, 0.1
 plt.legend()
 
 plt.subplot(2, 2, 3)
-plt.hist(df[df["species_name"] == "Iris-setosa"]["petal_length"], alpha=0.5, label="Iris-setosa")
-plt.hist(df[df["species_name"] == "Iris-versicolor"]["petal_length"], alpha=0.5, label="Iris-versicolor")
-plt.hist(df[df["species_name"] == "Iris-virginica"]["petal_length"], alpha=0.5, label="Iris-virginica")
+plt.hist(df[df["species_name"] == "Iris-setosa"]["petal_length"], alpha=0.5, label="Iris-setosa", color=colors["Iris-setosa"])
+plt.hist(df[df["species_name"] == "Iris-versicolor"]["petal_length"], alpha=0.5, label="Iris-versicolor", color=colors["Iris-versicolor"])
+plt.hist(df[df["species_name"] == "Iris-virginica"]["petal_length"], alpha=0.5, label="Iris-virginica", color=colors["Iris-virginica"])
 plt.title("Petal Length")
 plt.xlabel("Length (cm)")
 plt.ylabel("Frequency")
@@ -113,9 +115,9 @@ plt.xticks(np.arange(df["petal_length"].min(), df["petal_length"].max() + 0.2, 0
 plt.legend()
 
 plt.subplot(2, 2, 4)
-plt.hist(df[df["species_name"] == "Iris-setosa"]["petal_width"], alpha=0.5, label="Iris-setosa")
-plt.hist(df[df["species_name"] == "Iris-versicolor"]["petal_width"], alpha=0.5, label="Iris-versicolor")
-plt.hist(df[df["species_name"] == "Iris-virginica"]["petal_width"], alpha=0.5, label="Iris-virginica")
+plt.hist(df[df["species_name"] == "Iris-setosa"]["petal_width"], alpha=0.5, label="Iris-setosa", color=colors["Iris-setosa"])
+plt.hist(df[df["species_name"] == "Iris-versicolor"]["petal_width"], alpha=0.5, label="Iris-versicolor", color=colors["Iris-versicolor"])
+plt.hist(df[df["species_name"] == "Iris-virginica"]["petal_width"], alpha=0.5, label="Iris-virginica", color=colors["Iris-virginica"])
 plt.title("Petal Width")
 plt.xlabel("Width (cm)")
 plt.ylabel("Frequency")
@@ -127,33 +129,57 @@ plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.savefig(os.path.join(images, "iris_histograms.png"))
 plt.show()
 
-# Plot distribution of each feature for each species
-plt.figure(figsize=(10, 4))
+# Scatter plot distribution of each feature for each species
+plt.figure(figsize=(10, 10))
 plt.suptitle("Iris Dataset Feature Distributions", fontsize=20)
 
-plt.subplot(1, 2, 1)
-plt.scatter(df["sepal_length"], df["sepal_width"], c=df["species"].astype("category").cat.codes, cmap="viridis", alpha=0.5)
+plt.subplot(3, 2, 1)
+plt.scatter(df["sepal_length"], df["sepal_width"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
 plt.title("Sepal Length vs Width")
 plt.xlabel("Sepal Length (cm)")
 plt.ylabel("Sepal Width (cm)")
 
-plt.subplot(1, 2, 2)
-plt.scatter(df["petal_length"], df["petal_width"], c=df["species"].astype("category").cat.codes, cmap="viridis", alpha=0.5)
+plt.subplot(3, 2, 2)
+plt.scatter(df["petal_length"], df["petal_width"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
 plt.title("Petal Length vs Width")
 plt.xlabel("Petal Length (cm)")
 plt.ylabel("Petal Width (cm)")
+
+plt.subplot(3, 2, 3)
+plt.scatter(df["sepal_length"], df["petal_length"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
+plt.title("Sepal Length vs Petal Length")
+plt.xlabel("Sepal Length (cm)")
+plt.ylabel("Petal Length (cm)")
+
+plt.subplot(3, 2, 4)
+plt.scatter(df["sepal_width"], df["petal_width"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
+plt.title("Sepal Width vs Petal Width")
+plt.xlabel("Sepal Width (cm)")
+plt.ylabel("Petal Width (cm)")
+
+plt.subplot(3, 2, 5)
+plt.scatter(df["sepal_length"], df["petal_width"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
+plt.title("Sepal Length vs Petal Width")
+plt.xlabel("Sepal Length (cm)")
+plt.ylabel("Petal Width (cm)")
+
+plt.subplot(3, 2, 6)
+plt.scatter(df["sepal_width"], df["petal_length"], c=df["species"].astype("category").cat.codes, cmap="plasma", alpha=0.5)
+plt.title("Sepal Width vs Petal Length")
+plt.xlabel("Sepal Width (cm)")
+plt.ylabel("Petal Length (cm)")
 
 plt.tight_layout()
 plt.savefig(os.path.join(images, "iris_scatter_plots.png"))
 plt.show()
 
 # Plot correlation matrix with values displayed
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(10, 8))
 plt.title("Correlation Matrix")
 plt.imshow(correlation_matrix, cmap="coolwarm", interpolation="nearest")
 plt.colorbar()
 
-# Add text annotations for each square (this feature was generated by an AI model Copilot, the promt was "add the value in the centre of each square representing its correlation")
+# Add text annotations for each square (this feature was generated by an AI model Copilot, the prompt was "add the value in the centre of each square representing its correlation")
 for i in range(len(correlation_matrix)):
     for j in range(len(correlation_matrix)):
         plt.text(j, i, f"{correlation_matrix.iloc[i, j]:.2f}", ha="center", va="center", color="black")

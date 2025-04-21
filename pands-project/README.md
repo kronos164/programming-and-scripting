@@ -2,7 +2,7 @@
 
 ## About This Project
 
-The Iris dataset is a well-known dataset in the field of machine learning and statistics. It was introduced by the British statistician and biologist Ronald A. Fisher in 1936 as part of his work on linear discriminant analysis. The dataset contains 150 entries of iris flowers, divided into three species: Iris-setosa, Iris-versicolor, and Iris-virginica. Each species has 50 entries.
+The Iris dataset is a well known dataset in the field data science and machine learning. It was introduced by the British statistician and biologist Ronald A. Fisher in 1936 as part of his work on linear discriminant analysis. The dataset contains 150 entries of iris flowers, divided into three species: Iris-setosa, Iris-versicolor, and Iris-virginica. Each species has 50 entries.
 
 The dataset includes four features for each entry:
 - Sepal length (in cm)
@@ -10,7 +10,7 @@ The dataset includes four features for each entry:
 - Petal length (in cm)
 - Petal width (in cm)
 
-These features are used to classify the samples into their respective species. This dataset is a very popular data dataset for students in machine learning and data analysis due to its simplicity and being well esctrutered.
+These features are used to classify the samples into their respective species. This dataset is a very popular data dataset for students in machine learning and data analysis due to its simplicity and being well structured.
 
 Each feature has different means values and distribution, mostly based on each species. Which makes easier to visualize this differences in plots.
 
@@ -44,11 +44,30 @@ programming-and-scripting/pands-project/
 ├── iris_summary.txt                                  # Text file with summary of Iris dataset
 |
 ```
+
+## Summary of the analysis
+
+![Histograms](images/iris_histograms.png)
+
+![Scatter Plot](images/iris_scatter_plots.png)
+
+![Correlation Matrix](images/iris_correlation_matrix.png)
+
+Looking closer to the plots, it's possible to observe a correlation between most of the features to what species they are. This can been seen in the histograms where there where clear separations in the size distribution of the flower's petal based on each species. These separations, when parred features, can also be noticed clearly in the scatter plot. This phenomena can be strongly observed in the Iris Setosa species, where a clear cluster is observed separated from the other two species in all pairs of features. However, when analysing exclusively the sepal width, the separation was not clear.
+
+By analysing the correlation matrix from this features, strong positive correlations could be observed (over 0.70). These strong correlations indicate the follow:
+   - There is a correlation between the species with the length of the sepal and with the length and width of the petal.
+   - There is a correlation between the width of the petal and both length of the petal and sepal.
+   - There is a correlation between the length of petal and sepal.
+
+Although these matrix has shown many relationships between the features, they do not necessary indicate/determine a causality among them.
+
 ## References:
 
 ### Iris dataset
 
 https://www.kaggle.com/datasets/uciml/iris
+https://en.wikipedia.org/wiki/Iris_flower_data_set
 
 ### Code
 
